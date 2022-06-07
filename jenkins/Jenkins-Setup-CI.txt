@@ -26,12 +26,18 @@ Jenkins ( CI )
 
 CI ( continuous Integration )
 
+Plugins:
+Code review --> warnings next generation
+unittesting --> JUnit
+codecoverage --> cobertura
+For pipeline --> Build pipeline
+
 Jenkins Job      : maven goal           : post build action 
                 
                  
-job1-codereview	 : -P metrics pmd:pmd   : **/pmd.xml ( publish pmd analysis results )
+job1-codereview	 : -P metrics pmd:pmd   : **/pmd.xml ( publish pmd analysis results // Record compiler warning and statis analysis results)
                  
-job2-unittest    : test                 : target/surefire-reports/*.xml
+job2-unittest    : test                 : target/surefire-reports/*.xml  (Publish JUnit testing result)
                  
 job3-codecoverage : cobertura:cobertura -Dcobertura.report.format=xml  : target/site/cobertura/coverage.xml ( publish cobertura coverage report )
                  
